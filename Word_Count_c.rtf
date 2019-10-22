@@ -1,0 +1,51 @@
+{\rtf1\ansi\deff0\deftab720{\fonttbl{\f0\fmodern\fcharset134 Courier New;}}
+{\colortbl\red0\green128\blue0;\red0\green0\blue255;\red0\green0\blue0;\red128\green128\blue128;\red136\green0\blue0;\red255\green0\blue0;\red0\green0\blue128;\red160\green0\blue160;}
+{\info{\comment Exported by C-Free C/C++ IDE exporter}
+{\title C:\Users\ASUS\Desktop\Word_Count_c.rtf}}
+
+\deflang1033\pard\plain\f0\fs20 \cf0 #include <stdio.h>
+\par #include <stdlib.h>
+\par #include <string.h>
+\par \cf1 FILE \cf2 *\cf3 file\cf2 ;
+\par \cf1 int \cf4 main\cf2 ()
+\par \{
+\par    \cf1 int \cf3 character\cf2 =\cf5 0\cf2 , \cf3 word\cf2 =\cf5 0\cf2 ,\cf3 sentence\cf2 =\cf5 0\cf2 ;
+\par    \cf1 char \cf3 filename\cf2 [\cf5 1000\cf2 ];
+\par    \cf1 char \cf3 c\cf2 ;
+\par    \cf1 char \cf3 wordtag\cf2 =\cf5 1\cf2 ;
+\par    \cf4 printf\cf2 (\cf3 "\'C7\'EB\'CA\'E4\'C8\'EB\'C4\'BF\'B1\'EA\'CE\'C4\'B1\'BE\'B5\'C4\'CE\'C4\'BC\'FE\'C3\'FB\'A3\'A8\'D7\'A2\'A3\'BA\'D3\'A6\'B5\'B1\'B0\'FC\'BA\'AC\'CD\'EA\'D5\'FB\'C2\'B7\'BE\'B6)\'A3\'BA\\n"\cf2 );
+\par    \cf4 scanf\cf2 (\cf3 "%s"\cf2 ,\cf3 filename\cf2 );
+\par    \cf5 if\cf2 ((\cf3 file\cf2 =\cf4 fopen\cf2 (\cf3 filename\cf2 ,\cf3 "r"\cf2 ))==\cf6 NULL\cf2 )
+\par    \{ 
+\par     \cf4 printf\cf2 (\cf3 "\'CE\'C4\'BC\'FE\'B2\'BB\'B4\'E6\'D4\'DA\'A3\'A1\\n"\cf2 );
+\par     \cf4 exit\cf2 (\cf5 0\cf2 );
+\par    \}
+\par    \cf5 while\cf2 ((\cf3 c\cf2 =\cf4 fgetc\cf2 (\cf3 file\cf2 ))!=\cf7 EOF\cf2 )
+\par     \{
+\par        \cf5 if\cf2 (\cf3 c\cf2 >=\cf3 ' '\cf2 && \cf3 c\cf2 <=\cf3 '~'\cf2 )
+\par           \{    
+\par            \cf3 character\cf2 ++;
+\par           \}
+\par        \cf5 if\cf2 (\cf3 c\cf2 >=\cf5 91 \cf2 && \cf3 c\cf2 <=\cf5 96 \cf2 ||\cf3 c\cf2 <=\cf5 40 \cf2 || \cf3 c\cf2 >=\cf5 123\cf2 )
+\par           \{      
+\par            \cf3 wordtag\cf2 =\cf5 0\cf2 ;
+\par           \}
+\par        \cf5 else if\cf2 (\cf3 wordtag\cf2 ==\cf5 0\cf2 )
+\par           \{ 
+\par            \cf3 wordtag\cf2 =\cf5 1\cf2 ;
+\par            \cf3 word\cf2 ++;
+\par           \}
+\par 
+\par        \cf5 if\cf2 (\cf3 c\cf2 ==\cf3 '!' \cf2 && \cf3 c\cf2 ==\cf3 ',' \cf2 &&\cf3 c \cf2 ==\cf3 '.'\cf2 && \cf3 c\cf2 ==\cf3 '?'\cf2 )
+\par           \{
+\par            \cf3 sentence\cf2 ++;
+\par           \}
+\par        \cf4 putchar\cf2 (\cf3 c\cf2 );
+\par      \}
+\par     \cf4 fclose\cf2 (\cf3 file\cf2 ); 
+\par     \cf4 printf\cf2 (\cf3 "\\n\\n\'B8\'C3\'CE\'C4\'B1\'BE\'D6\'D0\'B5\'C4\'D7\'D6\'B7\'FB\'CA\'FD\'A3\'BA%d\\n"\cf2 ,\cf3 character\cf2 );
+\par     \cf4 printf\cf2 (\cf3 "\\n\\n\'B8\'C3\'CE\'C4\'B1\'BE\'D6\'D0\'B5\'C4\'B5\'A5\'B4\'CA\'CA\'FD\'A3\'BA%d\\n"\cf2 ,\cf3 word\cf2 );
+\par     \cf4 printf\cf2 (\cf3 "\\n\\n\'B8\'C3\'CE\'C4\'B1\'BE\'D6\'D0\'B5\'C4\'BE\'E4\'D7\'D3\'CA\'FD\'A3\'BA%d\\n"\cf2 ,\cf3 sentence\cf2 );
+\par \}
+\par 
+\par }
